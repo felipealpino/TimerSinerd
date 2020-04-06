@@ -1,0 +1,44 @@
+@echo off
+title Timer version 1.v2Sinerd
+cls
+echo.
+echo Selecione uma das opcoes abaixo para o desligamento automatico
+echo.
+echo [1] Tempo em segundos
+echo [2] Tempo em minutos
+echo [3] Tempo em horas 
+echo [4] Cancelar desligamento
+echo.
+rem :inicio   >> isso é um comentário << 
+set /p opcao=Digite a opcao desejada:
+
+if "%opcao%" == "1" goto op1
+if "%opcao%" == "2" goto op2
+if "%opcao%" == "3" goto op3
+if "%opcao%" == "4" goto op4
+rem if "%opcao%" 
+
+:op1
+set /p tempo=Tempo em segundos:
+shutdown /s /t "%tempo%"
+rem msg * "%tempo%"
+exit
+
+:op2
+set /p tempo=Tempo em minutos:
+set /a tempo=tempo*60
+shutdown /s /t "%tempo%"
+rem msg * "%tempo%"
+rem goto inicio
+exit
+
+:op3
+set /p tempo=Tempo em horas :
+set /a tempo=tempo*60*60
+shutdown /s /t "%tempo%"
+rem msg * "%tempo%"
+exit
+
+:op4
+shutdown /a
+exit
